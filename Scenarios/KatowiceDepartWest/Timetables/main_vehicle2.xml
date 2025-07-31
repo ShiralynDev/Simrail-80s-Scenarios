@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TimeTableStorage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TrainName>Pasażerski</TrainName>
+  <TrainNumber>40667</TrainNumber>
+  <LineNumber>Nr. 1</LineNumber>
+  <From>Dąbrowa Górnicza Sikorka</From>
+  <To>Dąbrowa Górnicza Sikorka</To>
+  <WayPoints>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Pogoria</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Pogoria</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>295.4</Mileage>
+		<ArrivalTime>600</ArrivalTime>
+		<DepartureTime>630</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Ząbkowice</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Ząbkowice</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>295.4</Mileage>
+		<ArrivalTime>840</ArrivalTime>
+		<DepartureTime>900</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Sikorka</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Sikorka</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>296.7</Mileage>
+		<ArrivalTime>600</ArrivalTime>
+		<DepartureTime>1200</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+  </WayPoints>
+  <StartSpeedLimit>120</StartSpeedLimit>
+  <StartGlobalSpeedLimit>120</StartGlobalSpeedLimit>
+  <StartRadioChannels>
+    <int>2</int>
+  </StartRadioChannels>
+</TimeTableStorage>

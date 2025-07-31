@@ -1,0 +1,11 @@
+startText=Good afternoon {0}, head over to your engine. Contact dispatch when ready.
+signalToOtherTrain=Signal given to reverse and couple up to the train on the middle track. [Couple up to it and uncouple the engine at the back, make sure to uncouple the engine at the end before coupleing your engine up (LUA script bugs otherwise)]
+vdNotReadyText=The virtual dispatcher is not ready, please wait a little while and call again.
+Tm70ToEm13Text=Copy that, will give you signals
+pleaseMoveToCorrectSignalText=You are not at the correct location, please move up to the next signal.
+wrongLengthText=Did you grab the right cars? You should have 3 second class cars and have detached the engine on the end.
+goForward=Drive forward
+goBackwards=Reverse
+copyToTrack3=Copy that, you are looking to head to track 3, I will give you signals to proceed forward then contact me again
+disconnectCars=Disconnect your cars first.
+wrongLengthEndText=Did you connect back to your consist? You should have 1 first class car and 3 second class cars.

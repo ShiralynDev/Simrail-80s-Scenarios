@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TimeTableStorage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TrainName>Pasażerski</TrainName>
+  <TrainNumber>40665</TrainNumber>
+  <LineNumber>Nr. 1</LineNumber>
+  <From>Dąbrowa Górnicza Sikorka</From>
+  <To>Dąbrowa Górnicza Sikorka</To>
+  <WayPoints>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Sikorka</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Sikorka</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>292.9</Mileage>
+		<ArrivalTime>0</ArrivalTime>
+		<DepartureTime>60</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Ząbkowice</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Ząbkowice</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>295.4</Mileage>
+		<ArrivalTime>300</ArrivalTime>
+		<DepartureTime>360</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Pogoria</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Pogoria</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>295.4</Mileage>
+		<ArrivalTime>540</ArrivalTime>
+		<DepartureTime>600</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+	<WayPointFromXml>
+		<NameOfPoint>Dąbrowa Górnicza Gołonóg</NameOfPoint>
+		<DisplayName>Dąbrowa Górnicza Gołonóg</DisplayName>
+		<StopType>commercialStop</StopType>
+		<Line>1</Line>
+		<Mileage>295.4</Mileage>
+		<ArrivalTime>50</ArrivalTime>
+		<DepartureTime>50</DepartureTime>
+		<TrainType>ROJ</TrainType>
+		<StationCategory>B</StationCategory>
+	</WayPointFromXml>
+  </WayPoints>
+  <StartSpeedLimit>120</StartSpeedLimit>
+  <StartGlobalSpeedLimit>120</StartGlobalSpeedLimit>
+  <StartRadioChannels>
+    <int>2</int>
+  </StartRadioChannels>
+</TimeTableStorage>

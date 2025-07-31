@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SceneryManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UID>52325390-b67a-4634-9de6-12a253cc0d76</UID>
+  <SceneName>WorldStreamerPlayer</SceneName>
+  <ThumbnailFile>thumbnail.png</ThumbnailFile>
+  <ThumbnailText>Shiralyn's 80's scenarios</ThumbnailText>
+    <MapFile>header.png</MapFile>
+  <LocationNameHeader>80's scenarios</LocationNameHeader>
+  <LocationName>by Shiralyn</LocationName>
+  <Description>Diffrent scenarios set in the 80's with stuff like shunting</Description>
+</SceneryManifest>

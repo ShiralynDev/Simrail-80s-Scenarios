@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScenarioManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UID>a74b3fa5-ea4d-4d7a-ae57-62379735e29d</UID>
+  <Required_Level>1</Required_Level>
+  <Train_Type>Other</Train_Type>
+  <Scenario_Name>SceneryNameText</Scenario_Name>
+  <Train_Engine_Names>
+    <string>Ty2</string>
+  </Train_Engine_Names>
+  <Train_Car_Names />
+  <Scenario_Start_Time>1991-07-28T13:00:00</Scenario_Start_Time>
+  <Scenario_Lenght>5</Scenario_Lenght>
+  <Difficulty>1</Difficulty>
+  <TrackLenghtInMeters>2000</TrackLenghtInMeters>
+  <SeasonOfTheYear>Summer</SeasonOfTheYear>
+  <SceneVariant>The80s</SceneVariant>
+  <HeaderText>HeaderText</HeaderText>
+  <SubHeaderText>SubHeaderText</SubHeaderText>
+  <MapFile>Map.png</MapFile>
+  <MainThumbnailPath>{Vehicle_Thumbnails}/Ty2-540.png</MainThumbnailPath>
+  <MiniThumbnailPath1>minithumbnails/minithumbnail1.jpg</MiniThumbnailPath1>
+  <MiniThumbnailPath2>minithumbnails/minithumbnail2.jpg</MiniThumbnailPath2>
+  <MiniThumbnailPath3>minithumbnails/minithumbnail3.jpg</MiniThumbnailPath3>
+  <Description>ScenarioDescription</Description>
+  <MissionFile>mission.lua</MissionFile>
+  <TimeTableFile>timetable.xml</TimeTableFile>
+  <CustomTranslations>
+    <CustomTranslation Key="SceneryNameText">
+      <Translations>
+        <CustomTranslationEntry LanguageTag="en">[Short] Katowice -> Brynow</CustomTranslationEntry>
+      </Translations>
+    </CustomTranslation>
+    <CustomTranslation Key="HeaderText">
+      <Translations>
+        <CustomTranslationEntry LanguageTag="en">Drive a short exit service</CustomTranslationEntry>
+      </Translations>
+    </CustomTranslation>
+    <CustomTranslation Key="SubHeaderText">
+      <Translations>
+        <CustomTranslationEntry LanguageTag="en">Short service</CustomTranslationEntry>
+      </Translations>
+    </CustomTranslation>
+    <CustomTranslation Key="ScenarioDescription">
+      <Translations>
+        <CustomTranslationEntry LanguageTag="en">Drive a train from Katowice station to the west map exit towards Brynow\n\nCredits:\nNarator voice: Shiralyn\nDriver voice: Nikolai\nDispatch voice: Coldy</CustomTranslationEntry>
+      </Translations>
+    </CustomTranslation>
+  </CustomTranslations>
+</ScenarioManifest>
