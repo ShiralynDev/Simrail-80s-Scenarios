@@ -2,7 +2,7 @@
 <ScenarioManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <UID>a74b3fa5-ea4d-4d7a-ae57-62379735e29d</UID>
   <Required_Level>1</Required_Level>
-  <Train_Type>Other</Train_Type>
+  <Train_Type>Passenger</Train_Type>
   <Scenario_Name>SceneryNameText</Scenario_Name>
   <Train_Engine_Names>
     <string>Ty2</string>
@@ -27,7 +27,7 @@
   <CustomTranslations>
     <CustomTranslation Key="SceneryNameText">
       <Translations>
-        <CustomTranslationEntry LanguageTag="en">[Short] Katowice -> Brynow</CustomTranslationEntry>
+        <CustomTranslationEntry LanguageTag="en">[Short] Katowice -&gt; Brynow</CustomTranslationEntry>
       </Translations>
     </CustomTranslation>
     <CustomTranslation Key="HeaderText">
