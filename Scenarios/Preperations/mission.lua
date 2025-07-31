@@ -132,7 +132,7 @@ function EarlyStartScenario()
 end
 
 function E13SignalTrigger() 
-    CreateSignalTrigger(FindSignal("KO_E13"), 40, {
+    CreateSignalTrigger(FindSignal("KO_E13"), 50, {
         check = UnconditialCheck, 
         result = function (state) 
             CreateCoroutine(function()
@@ -253,7 +253,8 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         VDSetRoute("KO_N5", "KO_Tm101", VDOrderType.ManeuverRoute)
         VDSetRoute("KO_Tm101", "t13335k", VDOrderType.ManeuverRoute)
 
-        VDSetRoute("KO_M5", "KO_E13", VDOrderType.TrainRoute)
+        VDSetRoute("KO_M5", "KO_Tm33", VDOrderType.ManeuverRoute)
+        VDSetRoute("KO_Tm33", "KO_E13", VDOrderType.ManeuverRoute)
         E13SignalTrigger();
         stage = 4
         end)
