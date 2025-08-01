@@ -5,6 +5,47 @@ function UnconditialCheck(e) -- Im keeping this typo to honor Eridor
 end
 
 globalMainTrain = 0
+globalTrainSets = 0
+globalShuntTrainOutOfWay = false
+globalLocalOutOfWay = true
+
+function train5Depart() 
+    VDSetRoute("KO_Tm56", "KO_M7", VDOrderType.ManeuverRoute)
+    
+    VDSetRouteWithVariant("KO_M7", "KO_E15", VDOrderType.TrainRoute, {
+        GetMidPointVariant("z_KO_55", true),
+        GetMidPointVariant("z_KO_53", true),
+        GetMidPointVariant("z_KO_37cd", true),
+        GetMidPointVariant("z_KO_37ab", true)
+    })
+    VDSetRouteWithVariant("KO_E15", "KZ_O", VDOrderType.TrainRoute, {
+        GetMidPointVariant("z_KO_25", false),
+        GetMidPointVariant("z_KO_22", false),
+        GetMidPointVariant("z_KO_13cd", true),
+        GetMidPointVariant("z_KO_13ab", false),
+        GetMidPointVariant("z_KO_6cd", false),
+        GetMidPointVariant("z_KO_6ab", false)
+    })
+    VDSetRouteWithVariant("KZ_O", "KZ_D2", VDOrderType.TrainRoute, {
+        GetMidPointVariant("z_KZ_52cd", false),
+        GetMidPointVariant("z_KZ_52ab", false),
+        GetMidPointVariant("z_KZ_48cd", false),
+        GetMidPointVariant("z_KZ_48ab", false)
+    })
+    VDSetRoute("KZ_D2", "KZ_B2bl", VDOrderType.TrainRoute)
+    VDSetRoute("SG_Y", "SG_R2", VDOrderType.TrainRoute)
+
+    if globalMainTrain ~= 5 then
+        CreateSignalTrigger(FindSignal("SG_R2"), 100, {
+            check = UnconditialCheck,
+            result = function (trainset) 
+                CreateCoroutine(function()
+                    DespawnTrainset(trainset)
+                end)
+            end
+        })
+    end
+end
 
 function spawnTrains(mainTrain)
 
@@ -18,6 +59,18 @@ function spawnTrains(mainTrain)
     trainsets[0] = SpawnTrainsetOnSignal(nil, FindSignal("KO_Tm70"), 100, false, isTrainMain, not isTrainMain, false,
     {
         CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_540, false)
+    })
+    trainsets[0].SetState(DynamicState.dsAccSlow, TrainsetState.tsShunting, false)
+
+    CreateSignalTrigger(FindSignal("KO_M3"), 100, 
+    {
+        check = UnconditialCheck,
+        result = function(trainset)
+            train5Depart()
+            trainsets[5].SetState(DynamicState.dsAccSlow, TrainsetState.tsTrain, false)
+            SetBotSpeed(trainsets[5], 80)
+            globalShuntTrainOutOfWay = true
+        end
     })
 
     isTrainMain = mainTrain == 1
@@ -80,6 +133,38 @@ function spawnTrains(mainTrain)
         CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Adnu_5051_1908_095_8_The80s, false)
     })
 
+    isTrainMain = mainTrain == 5
+    trainsets[5] = SpawnTrainset(nil, FindTrack("t12685"), 25, false, isTrainMain, not isTrainMain, false,
+    {
+        CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_540, false),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
+        ---
+        CreateNewSpawnVehicleDescriptor(FreightWagonNames.EAOS_3151_5351_989_9, false),
+        CreateNewSpawnVehicleDescriptor(FreightWagonNames.EAOS_3151_5351_989_9, false),
+        CreateNewSpawnVehicleDescriptor(FreightWagonNames.EAOS_3151_5351_989_9, false),
+        ---
+        CreateNewSpawnVehicleDescriptor(FreightWagonNames.SGS_3151_3944_773_6, false),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.SGS_3151_3944_773_6, false, FreightLoads_412W.Concrete_slab, 40, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.SGS_3151_3944_773_6, false, FreightLoads_412W.Pipeline, 10, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.SGS_3151_3944_773_6, false, FreightLoads_412W.T_beam, 40, BrakeRegime.G),
+        CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.SGS_3151_3944_773_6, false, FreightLoads_412W.Sheet_metal, 20, BrakeRegime.G),
+    })
+    trainsets[5].SetState(DynamicState.dsAccSlow, TrainsetState.tsShunting, true)
+
+    CreateSignalTrigger(FindSignal("KO_E15"), 1, {
+        check = UnconditialCheck,
+        result = function (trainset) 
+            CreateCoroutine(function()
+                LocalOutOfWay = true
+            end)
+        end
+    })
+
+
+    globalTrainSets = trainsets
     return trainsets
 
 end
@@ -91,9 +176,6 @@ function train0Depart(trainSet)
         VDSetRoute("KO_M3", "KO_Tm32", VDOrderType.ManeuverRoute)
         VDSetRoute("KO_Tm32", "KO_E13", VDOrderType.ManeuverRoute)
     end)
-    if globalMainTrain ~= 0 then
-        SetBotSpeed(trainSet, 50)
-    end
 end
 
 function train1Depart() 
@@ -113,4 +195,12 @@ function train2Depart()
         GetMidPointVariant("z_KO_86", true),
         GetMidPointVariant("z_KO_93", true)
     })
+end
+
+function getShuntTrainOutOfWay()
+    return globalShuntTrainOutOfWay
+end
+
+function getLocalOutOfWay()
+    return globalLocalOutOfWay
 end

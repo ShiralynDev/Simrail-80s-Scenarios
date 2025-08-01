@@ -11,7 +11,7 @@ StartPosition = {-11586, 270.5, 1533.25}
 --- List of sounds with their keys
 Sounds = {
     ['goodAfternoon'] = {
-        [Languages.English]  = "goodAfternoon.wav"
+        [Languages.English]  = "welcomePrepare.wav"
     },
     ['driverReady'] = {
         [Languages.English]  = "driverReady.mp3"
@@ -225,6 +225,13 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         DisplayChatText("pleaseMoveToCorrectSignalText")
         PlayNarrationAudioClip("pleaseMoveToSignal", 1)
     elseif stage == 2 then
+
+        if not getLocalOutOfWay() then
+            DisplayChatText("waitForTrainOutOfWay")
+            --PlayNarrationAudioClip("waitForTrainOutOfWay", 1)
+            return
+        end
+
         DisplayChatText("signalToOtherTrain")
         PlayNarrationAudioClip("reverseAndCouple", 1)
         VDSetRoute("KO_K", "KO_Tm29", VDOrderType.ManeuverRoute)

@@ -11,10 +11,10 @@ StartPosition = {-10915.85, 273, 1585.25}
 --- List of sounds with their keys
 Sounds = {
     ['goodAfternoon'] = {
-        [Languages.English]  = "goodAfternoon.wav"
+        [Languages.English]  = "../../../sounds/goodAfternoon.wav"
     },
     ['signalsForward'] = {
-        [Languages.English]  = "signalsForward.wav"
+        [Languages.English]  = "../../../sounds/signalsForward.wav"
     }
 }
 
