@@ -72,7 +72,7 @@ function StartScenario()
     trainSets = spawnTrains(5);
     trainSets[5].SetRadioChannel(1, true)
 
-    CreateDateTimeTrigger(DateTimeCreate(1991, 7, 28, 13, 0, 0), function()
+    CreateDateTimeTrigger(DateTimeCreate(1981, 7, 28, 13, 0, 0), function()
         CreateCoroutine(function()
             train0Depart(trainSets[0])
             train1Depart()
