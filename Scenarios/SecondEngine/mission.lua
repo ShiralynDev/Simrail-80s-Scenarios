@@ -73,7 +73,6 @@ end
 
 function OnVirtualDispatcherReady() 
     VDReady = true
-    train0Depart()
     train1Depart()
 end
 
@@ -96,6 +95,5 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         PlayNarrationAudioClip("signalsForward", 1)
         DisplayChatText(Tm70ToEm13Text) --rename lang tag
         train2Depart()
-        stage = 1
     end
 end

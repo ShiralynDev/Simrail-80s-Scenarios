@@ -74,7 +74,7 @@ function StartScenario()
 
     CreateDateTimeTrigger(DateTimeCreate(1981, 7, 28, 13, 0, 0), function()
         CreateCoroutine(function()
-            train0Depart(trainSets[0])
+            train0Depart()
             train1Depart()
             train2Depart()
         end)

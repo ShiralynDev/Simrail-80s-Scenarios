@@ -216,7 +216,7 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         coroutine.yield(CoroutineYields.WaitForSeconds, 10)
 
         DisplayChatText("Tm70ToEm13Text")
-        train0Depart(trainSets[0]) -- arg not needed I believe
+        train0Depart() -- arg not needed I believe
         PlayNarrationAudioClip("signalsForward", 1)
         stage = 1
         end)
