@@ -7,7 +7,7 @@ end
 globalMainTrain = 0
 globalTrainSets = {}
 globalShuntTrainOutOfWay = false
-globalLocalOutOfWay = true
+globalLocalOutOfWay = false
 
 function spawnTrains(mainTrain)
 
@@ -198,6 +198,15 @@ function train5Depart()
             result = function (trainset) 
                 CreateCoroutine(function()
                     DespawnTrainset(trainset)
+                end)
+            end
+        })
+
+        CreateSignalTrigger(FindSignal("KO_E15"), 20, {
+            check = UnconditialCheck,
+            result = function (trainset) 
+                CreateCoroutine(function()
+                    globalLocalOutOfWay = true;
                 end)
             end
         })

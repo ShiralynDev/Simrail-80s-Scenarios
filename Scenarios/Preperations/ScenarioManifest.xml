@@ -42,7 +42,7 @@
     </CustomTranslation>
     <CustomTranslation Key="ScenarioDescription">
       <Translations>
-        <CustomTranslationEntry LanguageTag="en">Shunt around some cars to get a passanger train ready for departure from Katowice station\n\nCredits:\nNarator voice: Shiralyn\nDriver voice: Nikolai\nDispatch voice: Coldy</CustomTranslationEntry>
+        <CustomTranslationEntry LanguageTag="en">Shunt around some cars to get a passanger train ready for departure from Katowice station\n\nCredits:\nNarator voice: Shiralyn\nDriver voice: Nikolai\nDispatch voice: Shiralyn</CustomTranslationEntry>
       </Translations>
     </CustomTranslation>
   </CustomTranslations>

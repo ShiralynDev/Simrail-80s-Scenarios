@@ -48,6 +48,9 @@ Sounds = {
     },
     ['forgotToGrabNarator'] = {
         [Languages.English]  = "forgotToGrabNARRATOR.wav"
+    },
+    ['SignalsForwardContactReverse'] = {
+        [Languages.English] = "SignalsForwardContactReverse.wav"
     }
 }
 
@@ -60,7 +63,7 @@ RadioClick = false
 -- if fireman mode possible then add this more as a function so it can be called like an AI mission thats working whilst other scenarios are being ran
 
 DeveloperMode = function()
-    return true
+    return false
 end
 
 function SetVDReadyDEBUG()
@@ -291,7 +294,7 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         coroutine.yield(CoroutineYields.WaitForSeconds, 5)
         PlayNarrationAudioClip("forgotToGrab", 1)
         coroutine.yield(CoroutineYields.WaitForSeconds, 5)
-        -- no problem, go forward, contact me when your are ready to reverse
+        PlayNarrationAudioClip("SignalsForwardContactReverse", 1)
         VDSetRoute("KO_M3", "KO_Tm32", VDOrderType.ManeuverRoute)
         VDSetRoute("KO_Tm32", "KO_Tm13", VDOrderType.ManeuverRoute)
         Tm13SignalTrigger();
@@ -325,7 +328,7 @@ function OnPlayerRadioCall(trainset, radioCall, channel)
         PlayNarrationAudioClip("attached", 1)
         VDSetRoute("KO_Tm39", "KO_Tm13", VDOrderType.ManeuverRoute)
         Tm13SignalTrigger();
-        -- Copy that, go forward bla bla
+        PlayNarrationAudioClip("SignalsForwardContactReverse", 1)
         stage = 10
 
     elseif stage == 10 then

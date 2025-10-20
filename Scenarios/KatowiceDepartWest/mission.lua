@@ -27,7 +27,7 @@ RadioClick = false
 -- if fireman mode possible then add this more as a function so it can be called like an AI mission thats working whilst other scenarios are being ran
 
 DeveloperMode = function()
-    return true
+    return false
 end
 
 function SetVDReadyDEBUG()

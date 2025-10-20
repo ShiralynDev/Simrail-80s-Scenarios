@@ -27,7 +27,7 @@
   <CustomTranslations>
     <CustomTranslation Key="SceneryNameText">
       <Translations>
-        <CustomTranslationEntry LanguageTag="en">[Local freight] Deliveries to Sosnowice Glowny</CustomTranslationEntry>
+        <CustomTranslationEntry LanguageTag="en">[W.I.P][Local freight] Deliveries to Sosnowice Glowny</CustomTranslationEntry>
       </Translations>
     </CustomTranslation>
     <CustomTranslation Key="HeaderText">
@@ -42,7 +42,7 @@
     </CustomTranslation>
     <CustomTranslation Key="ScenarioDescription">
       <Translations>
-        <CustomTranslationEntry LanguageTag="en">Drive a freight service from Katowice to Sosnowice Glowny and put your cars in the correct sidings.\n\nCredits:\nNarator voice: Shiralyn\nDriver voice: Nikolai\nKatowice voice: Coldy\nSG voice: Eli</CustomTranslationEntry>
+        <CustomTranslationEntry LanguageTag="en">Drive a freight service from Katowice to Sosnowice Glowny and put your cars in the correct sidings.\n\nCredits:\nNarator voice: Shiralyn\nDriver voice: Nikolai\nKatowice voice: Shiralyn\nSG voice: Eli</CustomTranslationEntry>
       </Translations>
     </CustomTranslation>
   </CustomTranslations>
