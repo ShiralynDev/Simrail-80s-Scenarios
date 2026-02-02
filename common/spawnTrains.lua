@@ -9,13 +9,22 @@ globalTrainSets = {}
 globalShuntTrainOutOfWay = false
 globalLocalOutOfWay = false
 
-function spawnTrains(mainTrain)
+local locomotiveMap = {
+    [1] = LocomotiveNames.Ty2_70,
+    [2] = LocomotiveNames.Ty2_347,
+    [3] = LocomotiveNames.Ty2_447,
+    [4] = LocomotiveNames.Ty2_540
+}
+
+function spawnTrains(mainTrain, locomotiveIndex)
 
     --local coldStart = false -- does not do much on Ty2 sadly, thats why its removed
 
     local trainsets = {}
     local isTrainMain = false;
     globalMainTrain = mainTrain
+    
+    local selectedLocomotive = locomotiveIndex and locomotiveMap[locomotiveIndex] or LocomotiveNames.Ty2_540
 
     local currentDateTime = GetDateTime()
     local targetDateTime = DateTimeCreate(1981, 7, 28, 13, 0, 0)
@@ -26,7 +35,7 @@ function spawnTrains(mainTrain)
         isTrainMain = mainTrain == 0
         trainsets[0] = SpawnTrainsetOnSignal(nil, FindSignal("KO_Tm70"), 100, false, isTrainMain, not isTrainMain, false,
         {
-            CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_540, false)
+            CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_540, false)
         })
         trainsets[0].SetState(DynamicState.dsAccSlow, TrainsetState.tsShunting, false)
 
@@ -44,7 +53,7 @@ function spawnTrains(mainTrain)
         isTrainMain = mainTrain == 1
         trainsets[1] = SpawnTrainsetOnSignal(nil, FindSignal("KO_M8"), 10, false, isTrainMain, not isTrainMain, false,
         {
-            CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_477, false),
+            CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_477, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bcdu_5051_5978_003_8_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Adnu_5051_1908_095_8_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Adnu_5051_1908_095_8_The80s, false),
@@ -66,7 +75,7 @@ function spawnTrains(mainTrain)
         isTrainMain = mainTrain == 2
         trainsets[2] = SpawnTrainsetOnSignal(nil, FindSignal("KO_N10"), 10, true, isTrainMain, not isTrainMain, false,
         {
-            CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_477, false),
+            CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_477, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false),
@@ -88,7 +97,7 @@ function spawnTrains(mainTrain)
         isTrainMain = mainTrain == 3
         trainsets[3] = SpawnTrainsetOnSignal(nil, FindSignal("KO_N5"), 10, false, isTrainMain, not isTrainMain, false,
         {
-            CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_477, false),
+            CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_477, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false),
             CreateNewSpawnVehicleDescriptor(PassengerWagonNames.Bdnu_5051_2008_607_7_The80s, false)
@@ -104,7 +113,7 @@ function spawnTrains(mainTrain)
         isTrainMain = mainTrain == 5
         trainsets[5] = SpawnTrainset(nil, FindTrack("t12685"), 25, false, isTrainMain, not isTrainMain, false,
         {
-            CreateNewSpawnVehicleDescriptor(LocomotiveNames.Ty2_540, false),
+            CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_540, false),
             CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
             CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
             CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),

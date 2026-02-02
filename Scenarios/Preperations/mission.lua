@@ -5,6 +5,7 @@
 
 require("SimRailCore")
 require("../../common/spawnTrains")
+require("../../common/locomotiveSelection")
 
 --- Player start position as Vector3 
 StartPosition = {-11586, 270.5, 1533.25}
@@ -166,15 +167,17 @@ end
 
 trainSets = {}
 function StartScenario()
-    trainSets = spawnTrains(0)
-    PlayNarrationAudioClip("goodAfternoon", 1)
 
-    trainSets[0].SetRadioChannel(1, true)
-    --trainset.SetPaperTimetable("Paper")
-    E13SignalTrigger()
-
-    SetCameraView(CameraView.FirstPersonWalkingOutside)
-    DisplayChatText_Formatted("startText", GetUsername())
+    ShowLocomotiveSelectionDropdown(function(selectedIndex)
+        trainSets = spawnTrains(0, selectedIndex)
+        
+        PlayNarrationAudioClip("goodAfternoon", 1)
+        trainSets[0].SetRadioChannel(1, true)
+        E13SignalTrigger()
+        
+        SetCameraView(CameraView.FirstPersonWalkingOutside)
+        DisplayChatText_Formatted("startText", GetUsername())
+    end)
 end
 
 function PerformUpdate() 

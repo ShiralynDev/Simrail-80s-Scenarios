@@ -5,6 +5,7 @@
 
 require("SimRailCore")
 require("../../common/spawnTrains")
+require("../../common/locomotiveSelection")
 
 --- Player start position as Vector3 
 StartPosition = {-12123.03, 274.35, 1506.13}
@@ -69,29 +70,31 @@ end
 
 trainSets = {}
 function StartScenario()
-    trainSets = spawnTrains(5);
-    trainSets[5].SetRadioChannel(1, true)
+    ShowLocomotiveSelectionDropdown(function(selectedIndex)
+        trainSets = spawnTrains(5, selectedIndex)
+        trainSets[5].SetRadioChannel(1, true)
 
-    CreateDateTimeTrigger(DateTimeCreate(1981, 7, 28, 13, 0, 0), function()
-        CreateCoroutine(function()
-            train0Depart()
-            train1Depart()
-            train2Depart()
-        end)
-    end)
-
-    PlayNarrationAudioClip("goodAfternoon", 1)
-    SetCameraView(CameraView.FirstPersonWalkingOutside)
-    DisplayChatText_Formatted("startText", GetUsername())
-
-    CreateSignalTrigger(FindSignal("SG_R2"), 100, {
-        check = UnconditialCheck,
-        result = function (trainset) 
+        CreateDateTimeTrigger(DateTimeCreate(1981, 7, 28, 13, 0, 0), function()
             CreateCoroutine(function()
-                stage = 1
+                train0Depart()
+                train1Depart()
+                train2Depart()
             end)
-        end
-    })
+        end)
+
+        PlayNarrationAudioClip("goodAfternoon", 1)
+        SetCameraView(CameraView.FirstPersonWalkingOutside)
+        DisplayChatText_Formatted("startText", GetUsername())
+
+        CreateSignalTrigger(FindSignal("SG_R2"), 100, {
+            check = UnconditialCheck,
+            result = function (trainset) 
+                CreateCoroutine(function()
+                    stage = 1
+                end)
+            end
+        })
+    end)
 end
 
 function PerformUpdate() 
