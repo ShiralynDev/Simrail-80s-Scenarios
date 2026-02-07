@@ -44,8 +44,6 @@ function spawnTrains(mainTrain, locomotiveIndex)
             check = UnconditialCheck,
             result = function(trainset)
                 train5Depart()
-                trainsets[5].SetState(DynamicState.dsAccSlow, TrainsetState.tsTrain, false)
-                SetBotSpeed(trainsets[5], 80)
                 globalShuntTrainOutOfWay = true
             end
         })
@@ -111,7 +109,7 @@ function spawnTrains(mainTrain, locomotiveIndex)
         })
 
         isTrainMain = mainTrain == 5
-        trainsets[5] = SpawnTrainset(nil, FindTrack("t12685"), 25, false, isTrainMain, not isTrainMain, false,
+        trainsets[5] = SpawnTrainset("SG local", FindTrack("t12685"), 25, false, isTrainMain, not isTrainMain, false,
         {
             CreateNewSpawnVehicleDescriptor(isTrainMain and selectedLocomotive or LocomotiveNames.Ty2_540, false),
             CreateNewSpawnFullVehicleDescriptor(FreightWagonNames.UACS_3351_9307_587_6, false, "", 55, BrakeRegime.G),
